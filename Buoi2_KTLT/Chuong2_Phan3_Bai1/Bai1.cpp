@@ -175,6 +175,31 @@ void findElementsWithDigits(int a[], int n, int x) {
     }
     printf("\n");
 }
+// Hàm sắp xếp mảng chẵn tăng dần, lẻ giữ nguyên vị trí
+void sortEvenAscOddKeep(int a[], int n) {
+    int even[100], evenCount = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            even[evenCount++] = a[i];
+        }
+    }
+    for (int i = 0; i < evenCount - 1; i++) {
+        for (int j = i + 1; j < evenCount; j++) {
+            if (even[i] > even[j]) {
+                int temp = even[i];
+                even[i] = even[j];
+                even[j] = temp;
+            }
+        }
+    }
+    int evenIdx = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            a[i] = even[evenIdx++];
+        }
+    }
+}
+
 // Hàm in mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -198,6 +223,7 @@ int main() {
         printf("6. Tim day con giam dai nhat trong a\n");
         printf("7. Tim so nho thu 2 trong mang\n");
         printf("8. Tim cac phan tu chua cac chu so cua x\n");
+        printf("9. Sap xep mang chan tang dan, le giu nguyen vi tri\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -234,6 +260,11 @@ int main() {
             printf("Nhap x (so co 2 chu so): ");
             scanf_s("%d", &x);
             findElementsWithDigits(a, n, x);
+            break;
+        case 9:
+            sortEvenAscOddKeep(a, n);
+            printf("Mang sau khi sap xep chan tang dan, le giu nguyen vi tri: ");
+            printArray(a, n);
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
