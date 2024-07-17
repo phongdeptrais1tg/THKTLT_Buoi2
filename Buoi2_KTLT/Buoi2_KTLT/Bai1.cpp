@@ -52,6 +52,23 @@ void interchangeSortDesc(int a[], int n) {
         }
     }
 }
+// Câu 5 hàm tìm kiếm nhị phân
+int binarySearch(int a[], int n, int x) {
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (a[mid] == x) {
+            return mid;
+        }
+        else if (a[mid] < x) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
 // In mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -73,6 +90,7 @@ int main() {
         printf("3. Tim kiem tuyen tinh\n");
         printf("4. Sap xep tang dan bang Interchange Sort\n");
         printf("5. Sap xep giam dan bang Interchange Sort\n");
+        printf("6. Tim kiem nhi phan\n");
         printf("0. Exit\n");
         printf("Lua chon cua ban: ");
         scanf_s("%d", &choice);
@@ -108,6 +126,18 @@ int main() {
             interchangeSortDesc(a, n);
             printf("Mang sau khi giam dan bang Interchange Sort: ");
             printArray(a, n);
+            break;
+        case 6:
+            printf("Nhap gia tri can tim: ");
+            scanf_s("%d", &x);
+            interchangeSortAsc(a, n); 
+            pos = binarySearch(a, n, x);
+            if (pos != -1) {
+                printf(" %d tai vi tri %d\n", x, pos);
+            }
+            else {
+                printf("Khong tim thay %d\n", x);
+            }
             break;
         case 0:
             printf("Exit.\n");
