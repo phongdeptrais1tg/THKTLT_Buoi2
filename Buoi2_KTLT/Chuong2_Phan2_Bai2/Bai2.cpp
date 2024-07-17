@@ -39,7 +39,14 @@ void mixedToFraction(MixedNumber a, int* numerator, int* denominator) {
     *numerator = a.whole * a.denominator + a.numerator;
     *denominator = a.denominator;
 }
-
+// Câu 5 Hàm chuyển phân số thành hỗn số
+MixedNumber fractionToMixed(int numerator, int denominator) {
+    MixedNumber result;
+    result.whole = numerator / denominator;
+    result.numerator = numerator % denominator;
+    result.denominator = denominator;
+    return result;
+}
 int main() {
     srand(time(NULL));
     int n, choice;
@@ -56,6 +63,7 @@ int main() {
         printf("2. Xuat danh sach hon so\n");
         printf("3. So sanh 2 hon so\n");
         printf("4. Chuyen hon so thanh phan so\n");
+        printf("5. Chuyen phan so thanh hon so\n");
         printf("0. Thoat\n");
         printf("Lua chon: ");
         scanf_s("%d", &choice);
@@ -87,6 +95,12 @@ int main() {
             scanf_s("%d", &index1);
             mixedToFraction(b[index1], &num, &den);
             printf("Phan so: %d/%d\n", num, den);
+            break;
+        case 5:
+            printf("Nhap phan so ");
+            scanf_s("%d %d", &num, &den);
+            result = fractionToMixed(num, den);
+            printf("Hon so: %d %d/%d\n", result.whole, result.numerator, result.denominator);
             break;
         case 0:
             printf("Exit.\n");
