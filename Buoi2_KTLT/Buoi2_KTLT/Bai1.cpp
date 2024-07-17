@@ -84,6 +84,29 @@ void selectionSort(int a[], int n) {
         a[minIdx] = temp;
     }
 }
+
+// Câu 7 hàm sắp xếp tăng dần bằng Quick Sort
+void quickSort(int a[], int left, int right) {
+    if (left < right) {
+        int pivot = a[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (a[j] <= pivot) {
+                i++;
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+        int temp = a[i + 1];
+        a[i + 1] = a[right];
+        a[right] = temp;
+        int p = i + 1;
+        quickSort(a, left, p - 1);
+        quickSort(a, p + 1, right);
+    }
+}
+
 // In mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -107,6 +130,7 @@ int main() {
         printf("5. Sap xep giam dan bang Interchange Sort\n");
         printf("6. Tim kiem nhi phan\n");
         printf("7. Sap xep tang dan bang Selection Sort\n");
+        printf("8. Sap xep tang dan bang Quick Sort\n");
         printf("0. Exit\n");
         printf("Lua chon cua ban: ");
         scanf_s("%d", &choice);
@@ -158,6 +182,11 @@ int main() {
         case 7:
             selectionSort(a, n);
             printf("Mang sau khi tang dan Selection Sort: ");
+            printArray(a, n);
+            break;
+        case 8:
+            quickSort(a, 0, n - 1);
+            printf("Mang sau khi tang dan Quick Sort: ");
             printArray(a, n);
             break;
         case 0:
