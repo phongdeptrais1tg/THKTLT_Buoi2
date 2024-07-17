@@ -104,6 +104,30 @@ void sortEvenAscOddDesc(int a[], int n) {
         a[idx++] = odd[i];
     }
 }
+// Hàm tìm dãy con giảm dài nhất
+void longestDecreasingSubarray(int a[], int n) {
+    int maxLength = 1, length = 1;
+    int startIndex = 0, maxStartIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (a[i] < a[i - 1]) {
+            length++;
+            if (length > maxLength) {
+                maxLength = length;
+                maxStartIndex = startIndex;
+            }
+        }
+        else {
+            length = 1;
+            startIndex = i;
+        }
+    }
+    printf("Day con giam dai nhat:\n");
+    for (int i = maxStartIndex; i < maxStartIndex + maxLength; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
 // Hàm in mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -124,6 +148,7 @@ int main() {
         printf("3. Tinh tong cac phan tu co chu so dau la chu so le\n");
         printf("4. Liet ke so lan xuat hien cua cac phan tu trong mang\n");
         printf("5. Sap xep mang chan tang dan, le giam dan\n");
+        printf("6. Tim day con giam dai nhat trong a\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -149,6 +174,9 @@ int main() {
             sortEvenAscOddDesc(a, n);
             printf("Mang sau khi sap xep chan tang dan, le giam dan: ");
             printArray(a, n);
+            break;
+        case 6:
+            longestDecreasingSubarray(a, n);
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
