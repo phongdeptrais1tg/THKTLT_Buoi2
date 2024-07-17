@@ -86,6 +86,68 @@ MixedNumber divideMixedNumbers(MixedNumber a, MixedNumber b) {
     int denominator = den_a * num_b;
     return fractionToMixed(numerator, denominator);
 }
+// Hàm sắp xếp tăng dần bằng Interchange Sort
+void interchangeSortAsc(MixedNumber b[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (compareMixedNumbers(b[i], b[j]) > 0) {
+                MixedNumber temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
+            }
+        }
+    }
+}
+
+// Hàm sắp xếp giảm dần bằng Interchange Sort
+void interchangeSortDesc(MixedNumber b[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (compareMixedNumbers(b[i], b[j]) < 0) {
+                MixedNumber temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
+            }
+        }
+    }
+}
+
+// Hàm sắp xếp tăng dần bằng Selection Sort
+void selectionSortAsc(MixedNumber b[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIdx = i;
+        for (int j = i + 1; j < n; j++) {
+            if (compareMixedNumbers(b[j], b[minIdx]) < 0) {
+                minIdx = j;
+            }
+        }
+        MixedNumber temp = b[i];
+        b[i] = b[minIdx];
+        b[minIdx] = temp;
+    }
+}
+
+// Hàm sắp xếp tăng dần bằng Quick Sort
+void quickSortAsc(MixedNumber b[], int left, int right) {
+    if (left < right) {
+        MixedNumber pivot = b[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (compareMixedNumbers(b[j], pivot) < 0) {
+                i++;
+                MixedNumber temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
+            }
+        }
+        MixedNumber temp = b[i + 1];
+        b[i + 1] = b[right];
+        b[right] = temp;
+        int p = i + 1;
+        quickSortAsc(b, left, p - 1);
+        quickSortAsc(b, p + 1, right);
+    }
+}
 int main() {
     srand(time(NULL));
     int n, choice;
@@ -104,6 +166,7 @@ int main() {
         printf("4. Chuyen hon so thanh phan so\n");
         printf("5. Chuyen phan so thanh hon so\n");
         printf("6. Tinh tong,hieu,tich,thuong cua 2 hon so\n");
+        printf("7. Sap xep b tang/giam theo 3 giai thuat da hoc\n");
         printf("0. Thoat\n");
         printf("Lua chon: ");
         scanf_s("%d", &choice);
@@ -153,6 +216,35 @@ int main() {
             printf("Tich: %d %d/%d\n", result.whole, result.numerator, result.denominator);
             result = divideMixedNumbers(b[index1], b[index2]);
             printf("Thuong: %d %d/%d\n", result.whole, result.numerator, result.denominator);
+            break;
+        case 7:
+            printf("Chon phuong phap sap xep:\n");
+            printf("1. Interchange Sort tang dan\n");
+            printf("2. Interchange Sort giam dan\n");
+            printf("3. Selection Sort tang dan\n");
+            printf("4. Quick Sort tang dan\n");
+            scanf_s("%d", &choice);
+            switch (choice) {
+            case 1:
+                interchangeSortAsc(b, n);
+                printf("Mang duoc sap xep tang dan bang Interchange Sort.\n");
+                break;
+            case 2:
+                interchangeSortDesc(b, n);
+                printf("Mang da duoc sap xep giam dan bang Interchange Sort.\n");
+                break;
+            case 3:
+                selectionSortAsc(b, n);
+                printf("Mang da duoc sap xep tang dan bang Selection Sort.\n");
+                break;
+            case 4:
+                quickSortAsc(b, 0, n - 1);
+                printf("Mang da duoc sap xep tang dan bang Quick Sort.\n");
+                break;
+            default:
+                printf("Lua chon!\n");
+                break;
+            }
             break;
         case 0:
             printf("Exit.\n");
