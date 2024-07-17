@@ -199,7 +199,23 @@ void sortEvenAscOddKeep(int a[], int n) {
         }
     }
 }
-
+// Hàm sắp xếp mảng: số lẻ ở đầu, số chẵn ở cuối
+void sortOddFirstEvenLast(int a[], int n) {
+    int temp[100], idx = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 != 0) {
+            temp[idx++] = a[i];
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            temp[idx++] = a[i];
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        a[i] = temp[i];
+    }
+}
 // Hàm in mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -224,6 +240,7 @@ int main() {
         printf("7. Tim so nho thu 2 trong mang\n");
         printf("8. Tim cac phan tu chua cac chu so cua x\n");
         printf("9. Sap xep mang chan tang dan, le giu nguyen vi tri\n");
+        printf("10. Sap xep mang: so le o dau mang, so chan o cuoi mang\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -264,6 +281,11 @@ int main() {
         case 9:
             sortEvenAscOddKeep(a, n);
             printf("Mang sau khi sap xep chan tang dan, le giu nguyen vi tri: ");
+            printArray(a, n);
+            break;
+        case 10:
+            sortOddFirstEvenLast(a, n);
+            printf("Mang sau khi sap xep: so le o dau, so chan o cuoi: ");
             printArray(a, n);
             break;
         case 0:
