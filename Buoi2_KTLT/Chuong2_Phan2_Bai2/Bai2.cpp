@@ -34,6 +34,12 @@ int compareMixedNumbers(MixedNumber a, MixedNumber b) {
     else if (a_value > b_value) return 1;
     else return 0;
 }
+// Câu 4 Hàm chuyển hỗn số thành phân số
+void mixedToFraction(MixedNumber a, int* numerator, int* denominator) {
+    *numerator = a.whole * a.denominator + a.numerator;
+    *denominator = a.denominator;
+}
+
 int main() {
     srand(time(NULL));
     int n, choice;
@@ -49,6 +55,7 @@ int main() {
         printf("1. Tao mang b chua gia tri hon so ngau nhien\n");
         printf("2. Xuat danh sach hon so\n");
         printf("3. So sanh 2 hon so\n");
+        printf("4. Chuyen hon so thanh phan so\n");
         printf("0. Thoat\n");
         printf("Lua chon: ");
         scanf_s("%d", &choice);
@@ -74,6 +81,12 @@ int main() {
             else {
                 printf("Hon so 1 lon hon hon so 2.\n");
             }
+            break;
+        case 4:
+            printf("Nhap hon so thanh phan so (tu 0 den %d): ", n - 1);
+            scanf_s("%d", &index1);
+            mixedToFraction(b[index1], &num, &den);
+            printf("Phan so: %d/%d\n", num, den);
             break;
         case 0:
             printf("Exit.\n");
