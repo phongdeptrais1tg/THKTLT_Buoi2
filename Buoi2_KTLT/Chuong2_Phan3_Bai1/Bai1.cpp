@@ -36,6 +36,21 @@ void listPrimesLessThanN(int n) {
     }
 }
 
+// Hàm tính tổng các phần tử có chữ số đầu là chữ số lẻ
+int sumOddLeadingDigit(int a[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        int firstDigit = a[i];
+        while (firstDigit >= 10) {
+            firstDigit /= 10;
+        }
+        if (firstDigit % 2 != 0) {
+            sum += a[i];
+        }
+    }
+    return sum;
+}
+
 // Hàm in mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -53,6 +68,7 @@ int main() {
         printf("\nMenu:\n");
         printf("1. Liet ke cac so 15 phan tu\n");
         printf("2. Liet ke cac so nguyen to nho hon n\n");
+        printf("3. Tinh tong cac phan tu co chu so dau la chu so le\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -68,7 +84,9 @@ int main() {
             scanf_s("%d", &x);
             listPrimesLessThanN(x);
             break;
-        
+        case 3:
+            printf("Tong cac phan tu co chu so dau la chu so le: %d\n", sumOddLeadingDigit(a, n));
+            break;
         case 0:
             printf("Thoat chuong trinh.\n");
             break;
