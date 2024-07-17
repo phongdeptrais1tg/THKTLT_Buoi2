@@ -1,3 +1,3 @@
 ﻿  Bai1.cpp
-C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(40,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(64,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Buoi2_KTLT.vcxproj -> C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Debug\Chuong2_Phan2.exe

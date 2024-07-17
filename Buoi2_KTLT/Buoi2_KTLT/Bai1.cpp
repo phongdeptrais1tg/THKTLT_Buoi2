@@ -27,7 +27,31 @@ int linearSearch(int a[], int n, int x) {
     }
     return -1;
 }
+// Câu 4 hàm sắp xếp tăng dần bằng Interchange Sort
+void interchangeSortAsc(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i] > a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+}
 
+// Câu 4 hàm sắp xếp giảm dần bằng Interchange Sort
+void interchangeSortDesc(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i] < a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+}
 // In mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -47,6 +71,8 @@ int main() {
         printf("1. Tao mang ngau nhien co so phan tu >= 15\n");
         printf("2. Tao mang so chan\n");
         printf("3. Tim kiem tuyen tinh\n");
+        printf("4. Sap xep tang dan bang Interchange Sort\n");
+        printf("5. Sap xep giam dan bang Interchange Sort\n");
         printf("0. Exit\n");
         printf("Lua chon cua ban: ");
         scanf_s("%d", &choice);
@@ -72,6 +98,16 @@ int main() {
             else {
                 printf("Khong tim thay %d\n", x);
             }
+            break;
+        case 4:
+            interchangeSortAsc(a, n);
+            printf("Mang sau khi tang dan bang Interchange Sort: ");
+            printArray(a, n);
+            break;
+        case 5:
+            interchangeSortDesc(a, n);
+            printf("Mang sau khi giam dan bang Interchange Sort: ");
+            printArray(a, n);
             break;
         case 0:
             printf("Exit.\n");
