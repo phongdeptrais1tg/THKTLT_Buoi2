@@ -69,6 +69,21 @@ int binarySearch(int a[], int n, int x) {
     }
     return -1;
 }
+
+// Câu 6 hàm sắp xếp tăng dần bằng Selection Sort
+void selectionSort(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIdx = i;
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] < a[minIdx]) {
+                minIdx = j;
+            }
+        }
+        int temp = a[i];
+        a[i] = a[minIdx];
+        a[minIdx] = temp;
+    }
+}
 // In mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -91,6 +106,7 @@ int main() {
         printf("4. Sap xep tang dan bang Interchange Sort\n");
         printf("5. Sap xep giam dan bang Interchange Sort\n");
         printf("6. Tim kiem nhi phan\n");
+        printf("7. Sap xep tang dan bang Selection Sort\n");
         printf("0. Exit\n");
         printf("Lua chon cua ban: ");
         scanf_s("%d", &choice);
@@ -138,6 +154,11 @@ int main() {
             else {
                 printf("Khong tim thay %d\n", x);
             }
+            break;
+        case 7:
+            selectionSort(a, n);
+            printf("Mang sau khi tang dan Selection Sort: ");
+            printArray(a, n);
             break;
         case 0:
             printf("Exit.\n");
