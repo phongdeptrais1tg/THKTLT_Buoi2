@@ -1,5 +1,5 @@
 ﻿  Bai1.cpp
-C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(22,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(25,20): warning C4101: 'pos': unreferenced local variable
-C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(25,17): warning C4101: 'x': unreferenced local variable
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(33,20): warning C4101: 'pos': unreferenced local variable
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Buoi2_KTLT\Bai1.cpp(33,17): warning C4101: 'x': unreferenced local variable
   Buoi2_KTLT.vcxproj -> C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Debug\Chuong2_Phan2.exe

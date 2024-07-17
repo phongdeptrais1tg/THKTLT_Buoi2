@@ -10,6 +10,14 @@ void generateRandomArray(int a[], int* n) {
     }
 }
 
+// Câu 2 hàm tạo mảng chứa toàn số chẵn
+void generateEvenArray(int a[], int* n) {
+    *n = 15 + rand() % 6;
+    for (int i = 0; i < *n; i++) {
+        a[i] = (rand() % 50) * 2; 
+    }
+}
+
 // In mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -27,6 +35,7 @@ int main() {
     do {
         printf("\nMenu:\n");
         printf("1. Tao mang ngau nhien co so phan tu >= 15\n");
+        printf("2. Tao mang so chan\n");
         printf("0. Exit\n");
         printf("Lua chon cua ban: ");
         scanf_s("%d", &choice);
@@ -37,7 +46,11 @@ int main() {
             printf("Mang ngau nhien: ");
             printArray(a, n);
             break;
-        
+        case 2:
+            generateEvenArray(a, &n);
+            printf("Mang toan so chan: ");
+            printArray(a, n);
+            break;
         case 0:
             printf("Exit.\n");
             break;
