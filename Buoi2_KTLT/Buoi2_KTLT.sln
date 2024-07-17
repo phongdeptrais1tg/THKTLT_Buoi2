@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chuong2_Phan2", "Buoi2_KTLT
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chuong2_Phan2_Bai2", "Chuong2_Phan2_Bai2\Chuong2_Phan2_Bai2.vcxproj", "{85474FEE-3503-445A-901B-01F13C6A4913}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chuong2_Phan3_Bai1", "Chuong2_Phan3_Bai1\Chuong2_Phan3_Bai1.vcxproj", "{0C19B973-9053-405A-96A8-E1F9E1418C4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{85474FEE-3503-445A-901B-01F13C6A4913}.Release|x64.Build.0 = Release|x64
 		{85474FEE-3503-445A-901B-01F13C6A4913}.Release|x86.ActiveCfg = Release|Win32
 		{85474FEE-3503-445A-901B-01F13C6A4913}.Release|x86.Build.0 = Release|Win32
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Debug|x64.ActiveCfg = Debug|x64
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Debug|x64.Build.0 = Debug|x64
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Debug|x86.ActiveCfg = Debug|Win32
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Debug|x86.Build.0 = Debug|Win32
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Release|x64.ActiveCfg = Release|x64
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Release|x64.Build.0 = Release|x64
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Release|x86.ActiveCfg = Release|Win32
+		{0C19B973-9053-405A-96A8-E1F9E1418C4C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
