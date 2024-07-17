@@ -47,6 +47,45 @@ MixedNumber fractionToMixed(int numerator, int denominator) {
     result.denominator = denominator;
     return result;
 }
+// Hàm tính tổng 2 hỗn số
+MixedNumber addMixedNumbers(MixedNumber a, MixedNumber b) {
+    int num_a, den_a, num_b, den_b;
+    mixedToFraction(a, &num_a, &den_a);
+    mixedToFraction(b, &num_b, &den_b);
+    int numerator = num_a * den_b + num_b * den_a;
+    int denominator = den_a * den_b;
+    return fractionToMixed(numerator, denominator);
+}
+
+// Hàm tính hiệu 2 hỗn số
+MixedNumber subtractMixedNumbers(MixedNumber a, MixedNumber b) {
+    int num_a, den_a, num_b, den_b;
+    mixedToFraction(a, &num_a, &den_a);
+    mixedToFraction(b, &num_b, &den_b);
+    int numerator = num_a * den_b - num_b * den_a;
+    int denominator = den_a * den_b;
+    return fractionToMixed(numerator, denominator);
+}
+
+// Hàm tính tích 2 hỗn số
+MixedNumber multiplyMixedNumbers(MixedNumber a, MixedNumber b) {
+    int num_a, den_a, num_b, den_b;
+    mixedToFraction(a, &num_a, &den_a);
+    mixedToFraction(b, &num_b, &den_b);
+    int numerator = num_a * num_b;
+    int denominator = den_a * den_b;
+    return fractionToMixed(numerator, denominator);
+}
+
+// Hàm tính thương 2 hỗn số
+MixedNumber divideMixedNumbers(MixedNumber a, MixedNumber b) {
+    int num_a, den_a, num_b, den_b;
+    mixedToFraction(a, &num_a, &den_a);
+    mixedToFraction(b, &num_b, &den_b);
+    int numerator = num_a * den_b;
+    int denominator = den_a * num_b;
+    return fractionToMixed(numerator, denominator);
+}
 int main() {
     srand(time(NULL));
     int n, choice;
@@ -64,6 +103,7 @@ int main() {
         printf("3. So sanh 2 hon so\n");
         printf("4. Chuyen hon so thanh phan so\n");
         printf("5. Chuyen phan so thanh hon so\n");
+        printf("6. Tinh tong,hieu,tich,thuong cua 2 hon so\n");
         printf("0. Thoat\n");
         printf("Lua chon: ");
         scanf_s("%d", &choice);
@@ -101,6 +141,18 @@ int main() {
             scanf_s("%d %d", &num, &den);
             result = fractionToMixed(num, den);
             printf("Hon so: %d %d/%d\n", result.whole, result.numerator, result.denominator);
+            break;
+        case 6:
+            printf("Nhap 2 hon so (tu 0 den %d): ", n - 1);
+            scanf_s("%d %d", &index1, &index2);
+            result = addMixedNumbers(b[index1], b[index2]);
+            printf("Tong: %d %d/%d\n", result.whole, result.numerator, result.denominator);
+            result = subtractMixedNumbers(b[index1], b[index2]);
+            printf("Hieu: %d %d/%d\n", result.whole, result.numerator, result.denominator);
+            result = multiplyMixedNumbers(b[index1], b[index2]);
+            printf("Tich: %d %d/%d\n", result.whole, result.numerator, result.denominator);
+            result = divideMixedNumbers(b[index1], b[index2]);
+            printf("Thuong: %d %d/%d\n", result.whole, result.numerator, result.denominator);
             break;
         case 0:
             printf("Exit.\n");

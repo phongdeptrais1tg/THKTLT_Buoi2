@@ -1,5 +1,7 @@
 ﻿  Bai2.cpp
-C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(51,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(81,20): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
-C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(81,20): warning C4566: character represented by universal-character-name '\u1EBF' cannot be represented in the current code page (1252)
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(90,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(121,20): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(121,20): warning C4566: character represented by universal-character-name '\u1EBF' cannot be represented in the current code page (1252)
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(146,20): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Chuong2_Phan2_Bai2\Bai2.cpp(146,20): warning C4566: character represented by universal-character-name '\u1EBF' cannot be represented in the current code page (1252)
   Chuong2_Phan2_Bai2.vcxproj -> C:\Users\WIN-MAC\Desktop\Tài Liệu Môn Học\THKTLT\THKTLT_Buoi2\Buoi2_KTLT\Debug\Chuong2_Phan2_Bai2.exe
