@@ -152,6 +152,29 @@ int findSecondSmallest(int a[], int n) {
 
     return secondMin;
 }
+// Hàm kiểm tra số có chứa các chữ số của x
+int containsDigits(int num, int x) {
+    int digit1 = x / 10;
+    int digit2 = x % 10;
+    int found1 = 0, found2 = 0;
+    while (num > 0) {
+        int digit = num % 10;
+        if (digit == digit1) found1 = 1;
+        if (digit == digit2) found2 = 1;
+        num /= 10;
+    }
+    return found1 && found2;
+}
+// Hàm tìm các phần tử chứa các chữ số của x
+void findElementsWithDigits(int a[], int n, int x) {
+    printf("Cac phan tu chua cac chu so cua %d:\n", x);
+    for (int i = 0; i < n; i++) {
+        if (containsDigits(a[i], x)) {
+            printf("%d ", a[i]);
+        }
+    }
+    printf("\n");
+}
 // Hàm in mảng
 void printArray(int a[], int n) {
     for (int i = 0; i < n; i++) {
@@ -174,6 +197,7 @@ int main() {
         printf("5. Sap xep mang chan tang dan, le giam dan\n");
         printf("6. Tim day con giam dai nhat trong a\n");
         printf("7. Tim so nho thu 2 trong mang\n");
+        printf("8. Tim cac phan tu chua cac chu so cua x\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -205,6 +229,11 @@ int main() {
             break;
         case 7:
             printf("So nho thu 2 trong mang: %d\n", findSecondSmallest(a, n));
+            break;
+        case 8:
+            printf("Nhap x (so co 2 chu so): ");
+            scanf_s("%d", &x);
+            findElementsWithDigits(a, n, x);
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
