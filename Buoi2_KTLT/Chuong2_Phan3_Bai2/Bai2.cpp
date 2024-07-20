@@ -112,6 +112,20 @@ void deleteElement(MixedNumber b[], int* n, int k) {
         printf("Vi tri khong hop le!\n");
     }
 }
+
+// Hàm thêm hỗn số x vào mảng b tại vị trí k
+void insertElement(MixedNumber b[], int* n, MixedNumber x, int k) {
+    if (k >= 0 && k <= *n) {
+        for (int i = *n; i > k; i--) {
+            b[i] = b[i - 1];
+        }
+        b[k] = x;
+        (*n)++;
+    }
+    else {
+        printf("Vi tri khong hop le!\n");
+    }
+}
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -130,6 +144,7 @@ int main() {
         printf("5. Tim hon so x theo Binary Search trong mang da sap xep\n");
         printf("6. Chia mang b thanh 2 mang s1 va s2\n");
         printf("7. Xoa phan tu thu k trong mang b\n");
+        printf("8. Them hon so x vao mang b tai vi tri k\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -187,6 +202,14 @@ int main() {
             int k;
             scanf_s("%d", &k);
             deleteElement(b, &n, k);
+            printMixedNumbers(b, n);
+            break;
+        case 8:
+            printf("Nhap hon so can them (whole numerator denominator): ");
+            scanf_s("%d %d %d", &x.whole, &x.numerator, &x.denominator);
+            printf("Nhap vi tri can them: ");
+            scanf_s("%d", &k);
+            insertElement(b, &n, x, k);
             printMixedNumbers(b, n);
             break;
         case 0:
