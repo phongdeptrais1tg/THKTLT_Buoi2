@@ -56,6 +56,43 @@ void sortMixedNumbersEvenOdd(MixedNumber b[], int n) {
     }
 }
 
+// Hàm sắp xếp mảng hỗn số tăng dần theo phần nguyên
+int compareMixedNumbers(MixedNumber a, MixedNumber b) {
+    if (a.whole != b.whole) return a.whole - b.whole;
+    double fracA = (double)a.numerator / a.denominator;
+    double fracB = (double)b.numerator / b.denominator;
+    return (fracA < fracB) ? -1 : (fracA > fracB);
+}
+
+void sortMixedNumbersAsc(MixedNumber b[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (compareMixedNumbers(b[i], b[j]) > 0) {
+                MixedNumber temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
+            }
+        }
+    }
+}
+
+// Hàm tìm hỗn số x theo Binary Search trong mảng đã sắp xếp
+int binarySearch(MixedNumber b[], int n, MixedNumber x) {
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (compareMixedNumbers(b[mid], x) == 0) {
+            return mid;
+        }
+        else if (compareMixedNumbers(b[mid], x) < 0) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -71,6 +108,7 @@ int main() {
         printf("2. Xuat danh sach hon so\n");
         printf("3. Tim hon so x theo Linear Search\n");
         printf("4. Sap xep b theo phan nguyen chan len dau, le o cuoi\n");
+        printf("5. Tim hon so x theo Binary Search trong mang da sap xep\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -98,6 +136,18 @@ int main() {
         case 4:
             sortMixedNumbersEvenOdd(b, n);
             printMixedNumbers(b, n);
+            break;
+        case 5:
+            sortMixedNumbersAsc(b, n);
+            printf("Nhap hon so can tim (whole numerator denominator): ");
+            scanf_s("%d %d %d", &x.whole, &x.numerator, &x.denominator);
+            index = binarySearch(b, n, x);
+            if (index != -1) {
+                printf("Tim thay hon so tai vi tri %d\n", index);
+            }
+            else {
+                printf("Khong tim thay hon so\n");
+            }
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
