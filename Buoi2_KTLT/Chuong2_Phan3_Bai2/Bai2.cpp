@@ -93,6 +93,13 @@ int binarySearch(MixedNumber b[], int n, MixedNumber x) {
     }
     return -1;
 }
+// Hàm chia mảng b thành 2 mảng s1 và s2
+void splitArray(MixedNumber b[], int n, int s1[], double s2[]) {
+    for (int i = 0; i < n; i++) {
+        s1[i] = b[i].whole;
+        s2[i] = (double)b[i].numerator / b[i].denominator;
+    }
+}
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -109,6 +116,7 @@ int main() {
         printf("3. Tim hon so x theo Linear Search\n");
         printf("4. Sap xep b theo phan nguyen chan len dau, le o cuoi\n");
         printf("5. Tim hon so x theo Binary Search trong mang da sap xep\n");
+        printf("6. Chia mang b thanh 2 mang s1 va s2\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -148,6 +156,18 @@ int main() {
             else {
                 printf("Khong tim thay hon so\n");
             }
+            break;
+        case 6:
+            splitArray(b, n, s1, s2);
+            printf("Mang s1 (phan nguyen): ");
+            for (int i = 0; i < n; i++) {
+                printf("%d ", s1[i]);
+            }
+            printf("\nMang s2 (phan so): ");
+            for (int i = 0; i < n; i++) {
+                printf("%0.2f ", s2[i]);
+            }
+            printf("\n");
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
