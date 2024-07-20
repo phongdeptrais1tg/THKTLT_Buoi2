@@ -100,6 +100,18 @@ void splitArray(MixedNumber b[], int n, int s1[], double s2[]) {
         s2[i] = (double)b[i].numerator / b[i].denominator;
     }
 }
+// Hàm xóa phần tử thứ k trong mảng b
+void deleteElement(MixedNumber b[], int* n, int k) {
+    if (k >= 0 && k < *n) {
+        for (int i = k; i < *n - 1; i++) {
+            b[i] = b[i + 1];
+        }
+        (*n)--;
+    }
+    else {
+        printf("Vi tri khong hop le!\n");
+    }
+}
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -117,6 +129,7 @@ int main() {
         printf("4. Sap xep b theo phan nguyen chan len dau, le o cuoi\n");
         printf("5. Tim hon so x theo Binary Search trong mang da sap xep\n");
         printf("6. Chia mang b thanh 2 mang s1 va s2\n");
+        printf("7. Xoa phan tu thu k trong mang b\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -168,6 +181,13 @@ int main() {
                 printf("%0.2f ", s2[i]);
             }
             printf("\n");
+            break;
+        case 7:
+            printf("Nhap vi tri can xoa: ");
+            int k;
+            scanf_s("%d", &k);
+            deleteElement(b, &n, k);
+            printMixedNumbers(b, n);
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
