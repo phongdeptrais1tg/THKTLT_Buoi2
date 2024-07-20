@@ -142,7 +142,26 @@ double sumMixedNumbers(MixedNumber b[], int n) {
     }
     return sum;
 }
+// Hàm tìm phần tử lớn nhất/nhỏ nhất của b
+MixedNumber findMaxMixedNumber(MixedNumber b[], int n) {
+    MixedNumber max = b[0];
+    for (int i = 1; i < n; i++) {
+        if (compareMixedNumbers(b[i], max) > 0) {
+            max = b[i];
+        }
+    }
+    return max;
+}
 
+MixedNumber findMinMixedNumber(MixedNumber b[], int n) {
+    MixedNumber min = b[0];
+    for (int i = 1; i < n; i++) {
+        if (compareMixedNumbers(b[i], min) < 0) {
+            min = b[i];
+        }
+    }
+    return min;
+}
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -164,6 +183,7 @@ int main() {
         printf("8. Them hon so x vao mang b tai vi tri k\n");
         printf("9. Tao mang c chua cac phan tu la phan so tu hon so cua b\n");
         printf("10. Tinh tong cac phan tu cua mang b\n");
+        printf("11. Tim phan tu lon nhat/nho nhat cua b\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -241,6 +261,10 @@ int main() {
             break;
         case 10:
             printf("Tong cac phan tu cua mang b: %0.2f\n", sumMixedNumbers(b, n));
+            break;
+        case 11:
+            printf("Phan tu lon nhat: %d %d/%d\n", findMaxMixedNumber(b, n).whole, findMaxMixedNumber(b, n).numerator, findMaxMixedNumber(b, n).denominator);
+            printf("Phan tu nho nhat: %d %d/%d\n", findMinMixedNumber(b, n).whole, findMinMixedNumber(b, n).numerator, findMinMixedNumber(b, n).denominator);
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
