@@ -101,6 +101,26 @@ void quickSort(SinhVien ds[], int left, int right) {
     if (left < j) quickSort(ds, left, j);
     if (i < right) quickSort(ds, i, right);
 }
+SinhVien timDiemCaoNhat(SinhVien ds[], int n) {
+    SinhVien maxSV = ds[0];
+    for (int i = 1; i < n; i++) {
+        if (ds[i].dtb > maxSV.dtb) {
+            maxSV = ds[i];
+        }
+    }
+    return maxSV;
+}
+
+SinhVien timDiemThapNhat(SinhVien ds[], int n) {
+    SinhVien minSV = ds[0];
+    for (int i = 1; i < n; i++) {
+        if (ds[i].dtb < minSV.dtb) {
+            minSV = ds[i];
+        }
+    }
+    return minSV;
+}
+
 
 int main() {
     SinhVien ds[100];
@@ -114,6 +134,8 @@ int main() {
         printf("3. Sap xep sinh vien theo diem trung binh tang dan (Interchange Sort)\n");
         printf("4. Sap xep sinh vien theo diem trung binh tang dan (Selection Sort)\n");
         printf("5. Sap xep sinh vien theo diem trung binh tang dan (Quick Sort)\n");
+        printf("6. Tim sinh vien co diem trung binh cao nhat\n");
+        printf("7. Tim sinh vien co diem trung binh thap nhat\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -139,6 +161,14 @@ int main() {
             quickSort(ds, 0, n - 1);
             printf("Danh sach sinh vien sau khi sap xep (Quick Sort):\n");
             xuatDanhSach(ds, n);
+            break;
+        case 6:
+            printf("Sinh vien co diem trung binh cao nhat:\n");
+            xuatSinhVien(timDiemCaoNhat(ds, n));
+            break;
+        case 7:
+            printf("Sinh vien co diem trung binh thap nhat:\n");
+            xuatSinhVien(timDiemThapNhat(ds, n));
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
