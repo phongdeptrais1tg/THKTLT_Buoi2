@@ -128,7 +128,15 @@ void xuatDanhSachGioiKha(SinhVien ds[], int n) {
         }
     }
 }
-
+int demSinhVienHoNguyen(SinhVien ds[], int n) {
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (strncmp(ds[i].hoTen, "Nguyen", 6) == 0) {
+            count++;
+        }
+    }
+    return count;
+}
 int main() {
     SinhVien ds[100];
     int n = 0;
@@ -144,6 +152,7 @@ int main() {
         printf("6. Tim sinh vien co diem trung binh cao nhat\n");
         printf("7. Tim sinh vien co diem trung binh thap nhat\n");
         printf("8. Xuat danh sach sinh vien xep loai gioi va kha\n");
+        printf("9. Dem so luong sinh vien ho 'Nguyen'\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -181,6 +190,9 @@ int main() {
         case 8:
             printf("Danh sach sinh vien xep loai gioi va kha:\n");
             xuatDanhSachGioiKha(ds, n);
+            break;
+        case 9:
+            printf("So luong sinh vien ho 'Nguyen': %d\n", demSinhVienHoNguyen(ds, n));
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
