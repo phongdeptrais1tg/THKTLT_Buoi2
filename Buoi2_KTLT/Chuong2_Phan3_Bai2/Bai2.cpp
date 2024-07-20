@@ -134,6 +134,15 @@ void createFractionArray(MixedNumber b[], int n, double c[]) {
     }
 }
 
+// Hàm tính tổng các phần tử của mảng b
+double sumMixedNumbers(MixedNumber b[], int n) {
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += b[i].whole + (double)b[i].numerator / b[i].denominator;
+    }
+    return sum;
+}
+
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -154,6 +163,7 @@ int main() {
         printf("7. Xoa phan tu thu k trong mang b\n");
         printf("8. Them hon so x vao mang b tai vi tri k\n");
         printf("9. Tao mang c chua cac phan tu la phan so tu hon so cua b\n");
+        printf("10. Tinh tong cac phan tu cua mang b\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -228,6 +238,9 @@ int main() {
                 printf("%0.2f ", c[i]);
             }
             printf("\n");
+            break;
+        case 10:
+            printf("Tong cac phan tu cua mang b: %0.2f\n", sumMixedNumbers(b, n));
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
