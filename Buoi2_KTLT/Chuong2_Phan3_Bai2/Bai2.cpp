@@ -42,6 +42,20 @@ MixedNumber inputMixedNumber() {
     return x;
 }
 
+// Hàm sắp xếp hỗn số theo phần nguyên chẵn lên đầu, phần nguyên lẻ ở cuối
+void sortMixedNumbersEvenOdd(MixedNumber b[], int n) {
+    int i = 0, j = n - 1;
+    while (i < j) {
+        while (i < j && b[i].whole % 2 == 0) i++;
+        while (i < j && b[j].whole % 2 != 0) j--;
+        if (i < j) {
+            MixedNumber temp = b[i];
+            b[i] = b[j];
+            b[j] = temp;
+        }
+    }
+}
+
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -56,6 +70,7 @@ int main() {
         printf("1. Tao mang b chua gia tri hon so ngau nhien\n");
         printf("2. Xuat danh sach hon so\n");
         printf("3. Tim hon so x theo Linear Search\n");
+        printf("4. Sap xep b theo phan nguyen chan len dau, le o cuoi\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -80,7 +95,10 @@ int main() {
                 printf("Khong tim thay hon so\n");
             }
             break;
-        
+        case 4:
+            sortMixedNumbersEvenOdd(b, n);
+            printMixedNumbers(b, n);
+            break;
         case 0:
             printf("Thoat chuong trinh.\n");
             break;
