@@ -120,7 +120,14 @@ SinhVien timDiemThapNhat(SinhVien ds[], int n) {
     }
     return minSV;
 }
-
+void xuatDanhSachGioiKha(SinhVien ds[], int n) {
+    for (int i = 0; i < n; i++) {
+        if (strcmp(ds[i].xepLoai, "Gioi") == 0 || strcmp(ds[i].xepLoai, "Kha") == 0) {
+            xuatSinhVien(ds[i]);
+            printf("\n");
+        }
+    }
+}
 
 int main() {
     SinhVien ds[100];
@@ -136,6 +143,7 @@ int main() {
         printf("5. Sap xep sinh vien theo diem trung binh tang dan (Quick Sort)\n");
         printf("6. Tim sinh vien co diem trung binh cao nhat\n");
         printf("7. Tim sinh vien co diem trung binh thap nhat\n");
+        printf("8. Xuat danh sach sinh vien xep loai gioi va kha\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -169,6 +177,10 @@ int main() {
         case 7:
             printf("Sinh vien co diem trung binh thap nhat:\n");
             xuatSinhVien(timDiemThapNhat(ds, n));
+            break;
+        case 8:
+            printf("Danh sach sinh vien xep loai gioi va kha:\n");
+            xuatDanhSachGioiKha(ds, n);
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
