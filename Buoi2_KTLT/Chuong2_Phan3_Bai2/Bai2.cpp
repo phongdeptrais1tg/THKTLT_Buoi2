@@ -172,6 +172,25 @@ void printEvenWholeIndexes(MixedNumber b[], int n) {
     }
     printf("\n");
 }
+// Hàm xuất vị trí của phần tử lớn nhất/nhỏ nhất của b
+void printMaxMinIndexes(MixedNumber b[], int n) {
+    MixedNumber max = findMaxMixedNumber(b, n);
+    MixedNumber min = findMinMixedNumber(b, n);
+    printf("Vi tri phan tu lon nhat: ");
+    for (int i = 0; i < n; i++) {
+        if (compareMixedNumbers(b[i], max) == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    printf("Vi tri phan tu nho nhat: ");
+    for (int i = 0; i < n; i++) {
+        if (compareMixedNumbers(b[i], min) == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -195,6 +214,7 @@ int main() {
         printf("10. Tinh tong cac phan tu cua mang b\n");
         printf("11. Tim phan tu lon nhat/nho nhat cua b\n");
         printf("12. Xuat vi tri phan tu co phan nguyen chan cua b\n");
+        printf("13. Xuat vi tri cua phan tu lon nhat/nho nhat cua b\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -279,6 +299,9 @@ int main() {
             break;
         case 12:
             printEvenWholeIndexes(b, n);
+            break;
+        case 13:
+            printMaxMinIndexes(b, n);
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
