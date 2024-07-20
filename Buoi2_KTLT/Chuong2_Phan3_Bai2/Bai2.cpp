@@ -126,6 +126,14 @@ void insertElement(MixedNumber b[], int* n, MixedNumber x, int k) {
         printf("Vi tri khong hop le!\n");
     }
 }
+
+// Hàm tạo mảng c chứa các phần tử là phân số được đổi từ hỗn số của mảng b
+void createFractionArray(MixedNumber b[], int n, double c[]) {
+    for (int i = 0; i < n; i++) {
+        c[i] = b[i].whole + (double)b[i].numerator / b[i].denominator;
+    }
+}
+
 int main() {
     srand(time(NULL));
     MixedNumber b[100];
@@ -145,6 +153,7 @@ int main() {
         printf("6. Chia mang b thanh 2 mang s1 va s2\n");
         printf("7. Xoa phan tu thu k trong mang b\n");
         printf("8. Them hon so x vao mang b tai vi tri k\n");
+        printf("9. Tao mang c chua cac phan tu la phan so tu hon so cua b\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon: ");
         scanf_s("%d", &choice);
@@ -211,6 +220,14 @@ int main() {
             scanf_s("%d", &k);
             insertElement(b, &n, x, k);
             printMixedNumbers(b, n);
+            break;
+        case 9:
+            createFractionArray(b, n, c);
+            printf("Mang c (phan so tu hon so cua b): ");
+            for (int i = 0; i < n; i++) {
+                printf("%0.2f ", c[i]);
+            }
+            printf("\n");
             break;
         case 0:
             printf("Thoat chuong trinh.\n");
